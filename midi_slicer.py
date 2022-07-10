@@ -38,7 +38,7 @@ def midi_slicer():
             for notes in inst.notes: #This is the original notes that we want to copy to another object
                 current_t = delta_array[i]
                 next_t = delta_array[i+1]
-                if notes.start > current_t and notes.end < next_t:
+                if notes.start >= current_t and notes.end <= next_t:
                     notes.start = notes.start - current_time
                     notes.end = notes.end - current_time
                     new_inst.notes.append(notes)
